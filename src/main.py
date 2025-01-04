@@ -5,7 +5,7 @@ import chess
 from menu import draw_menu, handle_menu_events
 from game import draw_game_screen, handle_move, track_legal_moves
 from ai import ai_move
-from utils import calculate_dimensions, scale_sprites, highlight_moves
+from utils import calculate_dimensions, highlight_moves
 
 
 def main():
@@ -33,11 +33,12 @@ def main():
                     board_x, board_y = draw_game_screen(screen, chess_board, player_turn, selected_square,
                                                          board_width, board_height, tile_width, tile_height)
                     selected_square = handle_move(chess_board, selected_square, mouse_pos)
+                    player_turn = not player_turn  # Toggle player turn after player's move
                 
-                if player_turn and not chess_board.is_game_over():
+                if not player_turn and not chess_board.is_game_over():
                     # AI Move
                     time.sleep(1)
-                    ai_move(chess_board)
+                    chess_board.push(ai_move(chess_board))
                     player_turn = not player_turn
 
             else:

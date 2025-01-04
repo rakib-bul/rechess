@@ -2,18 +2,18 @@ import pygame
 
 # Load Chess Pieces
 piece_sprites = {
-    "p": pygame.image.load(r"assets/black/pawn.png"),
-    "r": pygame.image.load(r"assets/black/rook.png"),
-    "n": pygame.image.load(r"assets/black/knight.png"),
-    "b": pygame.image.load(r"assets/black/bishop.png"),
-    "q": pygame.image.load(r"assets/black/queen.png"),
-    "k": pygame.image.load(r"assets/black/king.png"),
-    "P": pygame.image.load(r"assets/white/pawn.png"),
-    "R": pygame.image.load(r"assets/white/rook.png"),
-    "N": pygame.image.load(r"assets/white/knight.png"),
-    "B": pygame.image.load(r"assets/white/bishop.png"),
-    "Q": pygame.image.load(r"assets/white/queen.png"),
-    "K": pygame.image.load(r"assets/white/king.png"),
+    "p": pygame.image.load(r"src/assets/black/pawn.png"),
+    "r": pygame.image.load(r"src/assets/black/rook.png"),
+    "n": pygame.image.load(r"src/assets/black/knight.png"),
+    "b": pygame.image.load(r"src/assets/black/bishop.png"),
+    "q": pygame.image.load(r"src/assets/black/queen.png"),
+    "k": pygame.image.load(r"src/assets/black/king.png"),
+    "P": pygame.image.load(r"src/assets/white/pawn.png"),
+    "R": pygame.image.load(r"src/assets/white/rook.png"),
+    "N": pygame.image.load(r"src/assets/white/knight.png"),
+    "B": pygame.image.load(r"src/assets/white/bishop.png"),
+    "Q": pygame.image.load(r"src/assets/white/queen.png"),
+    "K": pygame.image.load(r"src/assets/white/king.png"),
 }
 
 def draw_pieces(screen, chess_board, board_x, board_y, tile_width, tile_height):
