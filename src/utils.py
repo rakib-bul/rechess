@@ -1,20 +1,17 @@
 import pygame
 
-def calculate_dimensions(screen_width, screen_height):
-    board_width = int(screen_width * 0.9)
-    board_height = int(screen_height * 0.75)
-    tile_width = board_width // 8
-    tile_height = board_height // 8
-    return board_width, board_height, tile_width, tile_height
+def calculate_square_dimensions(screen_size):
+    board_size = screen_size
+    tile_size = board_size // 8
+    return board_size, tile_size
 
-def highlight_moves(screen, chess_board, selected_square, board_x, board_y, tile_width, tile_height):
+def highlight_moves(screen, chess_board, selected_square, board_x, board_y, tile_size):
     if selected_square is not None:
-        legal_moves = list(chess_board.legal_moves)
-        for move in legal_moves:
+        for move in chess_board.legal_moves:
             if move.from_square == selected_square:
                 dest_square = move.to_square
                 row, col = divmod(dest_square, 8)
-                color = (255, 0, 0)  # Red for highlighted squares
-                pygame.draw.rect(screen, color, 
-                                 (board_x + (col * tile_width), board_y + (row * tile_height),
-                                  tile_width, tile_height), 3)
+                color = (0, 255, 0, 128)  # Transparent green
+                highlight_rect = pygame.Surface((tile_size, tile_size), pygame.SRCALPHA)
+                highlight_rect.fill(color)
+                screen.blit(highlight_rect, (board_x + col * tile_size, board_y + row * tile_size))
